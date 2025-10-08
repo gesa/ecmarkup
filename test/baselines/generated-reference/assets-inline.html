@@ -3321,6 +3321,8 @@ li.menu-search-result-term::before {
 
 :root {
   --page-number-style: decimal;
+  --black: #000000;
+  --white: #ffffff;
   -prince-change-line-breaks-for-pagination: yes; /* see https://www.princexml.com/doc/prince-for-books/#pagination-fine-tuning */
 }
 
@@ -3445,22 +3447,23 @@ html, body {
 body {
   font-family: 'Arial Plus', Arial, Helvetica, sans-serif, "DejaVu Math TeX Gyre", Symbola, monospace;
   font-size: 10pt;
-  color: #000;
+  color: var(--black);
   line-height: 1.15;
 }
 
 h1, h2, h3, h4, h5, h6 { -prince-bookmark-level: none } /* see https://www.princexml.com/doc/prince-output/#pdf-bookmarks */
 
+/* This is the title on page 1 immediately before clause 1 (Scope) */
 .copyright-notice + h1.title {
   break-before: recto;
-  color: black;
+  color: var(--black);
   counter-reset: page 1;
   display: block;
-  font-size: 15pt;
-  font-family: Verdana;
+  font-size: 16pt;
   font-weight: bold;
-  margin-bottom: 2.5ex;
-  margin-top: initial;
+  line-height: 17.5pt;
+  margin-top: 20pt;
+  margin-bottom: 38pt;
 }
 
 p {
@@ -3468,7 +3471,7 @@ p {
   text-rendering: optimizeLegibility;
   text-wrap: pretty;
   overflow-wrap: break-word;
-  hyphens: auto;
+  hyphens: manual;
   orphans: 2, -prince-prefer 3; /* see https://www.princexml.com/doc/prince-for-books/#pagination-goals */
   widows: 2, -prince-prefer 3;
 }
@@ -3496,6 +3499,7 @@ emu-alg li {
   widows: 2;
 }
 
+emu-example,
 emu-note,
 emu-note p,
 emu-table tr,
@@ -3536,7 +3540,7 @@ emu-note .note {
 }
 
 emu-note table td {
-  background-color: white;
+  background-color: var(--white);
 }
 
 emu-note p,
@@ -3679,7 +3683,7 @@ emu-table th {
 
 caption, table > figcaption {
   caption-side: top;
-  color: #000;
+  color: var(--black);
   font-weight: bold;
   margin-bottom: 1rem;
   text-align: center;
@@ -3755,7 +3759,7 @@ emu-figure img {
 
 #toc a,
 #toc var {
-  color: #000;
+  color: var(--black);
 }
 
 #toc a[href]::after {
@@ -3825,7 +3829,7 @@ emu-annex > h1 .secnum {
 
 .copyright-notice { /* ecma mandated */
   font-style: italic;
-  border: 1px solid black;
+  border: 1px solid var(--black);
   padding: 1em;
   page: copyright;
   break-before: page;
@@ -3844,7 +3848,7 @@ emu-annex > h1 .secnum {
 }
 
 #front-cover h1 {
-  color: black;
+  color: var(--black);
   display: block;
   font-family: Verdana;
   position: absolute;
@@ -3860,7 +3864,7 @@ h1.shortname {
 }
 
 h1.shortname a:link, h1.shortname a:visited, h1.shortname a:hover, h1.shortname a:active {
-  color: black;
+  color: var(--black);
 }
 
 h1.shortname .status {
@@ -3916,6 +3920,11 @@ p.ECMAaddress {
   font-style: normal;
 }
 
+#sec-terms-and-definitions emu-clause h1 {
+  font-size: 10pt;
+  -prince-bookmark-level: none;
+}
+
 #sec-terms-and-definitions h1 .secnum {
   display: block;
 }
@@ -3928,6 +3937,7 @@ p.ECMAaddress {
   margin-top: 0;
 }
 
+/* This is the paragraph that says "This standard was adopted…" that should always be present before an edition tag is cut */
 p.adoption-info {
   float: bottom;
 }
