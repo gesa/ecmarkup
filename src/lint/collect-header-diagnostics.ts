@@ -14,7 +14,7 @@ export function collectHeaderDiagnostics(
       // these will be handled by header-parser.ts
       continue;
     }
-    if (!/\(.*\)$/.test(contents) || / Operator \( `[^`]+` \)$/.test(contents)) {
+    if (!/\(.*\)$/.test(contents) || / operator \( `[^`]+` \)$/.test(contents)) {
       continue;
     }
 
@@ -35,8 +35,8 @@ export function collectHeaderDiagnostics(
     }
 
     const nameMatches = [
-      // Runtime Semantics: Foo
-      /^(Runtime|Static) Semantics: [A-Z][A-Za-z0-9/]*\s*$/,
+      // Runtime semantics: Foo
+      /^(Runtime|Static) semantics: [A-Z][A-Za-z0-9/]*\s*$/,
 
       // Number::foo
       /^[A-Z][A-Za-z0-9]*::[a-z][A-Za-z0-9]*\s*$/,
@@ -58,7 +58,7 @@ export function collectHeaderDiagnostics(
 
     if (!nameMatches) {
       const { line, column } = offsetToLineAndColumn(contents, 0);
-      let message = `expected operation to have a name like 'Example', 'Runtime Semantics: Foo', 'Example.prop', etc, but found ${JSON.stringify(name)}`;
+      let message = `expected operation to have a name like 'Example', 'Runtime semantics: Foo', 'Example.prop', etc, but found ${JSON.stringify(name)}`;
       const oldSymbolMatch = name.match(/@@([a-z][a-zA-Z]+)/);
       if (oldSymbolMatch != null) {
         message = `found use of unsupported legacy well-known Symbol notation ${oldSymbolMatch[0]}; use %Symbol.${oldSymbolMatch[1]}% instead`;
