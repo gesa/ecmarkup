@@ -216,7 +216,7 @@ p {
   text-rendering: optimizeLegibility;
   text-wrap: pretty;
   overflow-wrap: break-word;
-  hyphens: auto;
+  hyphens: none;
   orphans: 2, -prince-prefer 3; /* see https://www.princexml.com/doc/prince-for-books/#pagination-goals */
   widows: 2, -prince-prefer 3;
 }

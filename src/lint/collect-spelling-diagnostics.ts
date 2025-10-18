@@ -146,6 +146,14 @@ const matchers = [
     pattern: /(÷|&divide;)/gu,
     message: 'division should be written as "/", not "÷", per ISO 80000-2',
   },
+  /* Ecma formatting requirements */
+  // I considered leaving these to the print side of publication, but these are requirements for all Ecma standards,
+  // and more and more standards use ecmarkup, so it's better they're applied in all places, not just the final
+  // document. — Aki
+  {
+    pattern: /this (standard|annex)/gu,
+    message: '"Standard", "Annex", and "Clause" shall be capitalised when self-referential (e.g. "this Standard")',
+  },
 ];
 
 export function collectSpellingDiagnostics(
