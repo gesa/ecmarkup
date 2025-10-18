@@ -23,7 +23,7 @@ export type EcmarkupError = {
 };
 
 export interface Options {
-  status?: 'proposal' | 'draft' | 'standard';
+  status?: 'proposal' | 'draft' | 'standard' | 'corrigendum';
   version?: string;
   title?: string;
   shortname?: string;
