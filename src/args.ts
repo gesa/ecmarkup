@@ -71,7 +71,7 @@ export const options = [
     name: 'max-clause-depth',
     type: Number,
     description:
-      'The maximum nesting depth for clauses; exceeding this will cause a warning. Defaults to no limit.',
+      'The maximum nesting depth for clauses; exceeding this will cause a warning. Defaults to six (per Ecma house style.)',
   },
   {
     name: 'toc-depth',
