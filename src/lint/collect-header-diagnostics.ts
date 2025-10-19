@@ -14,7 +14,7 @@ export function collectHeaderDiagnostics(
       // these will be handled by header-parser.ts
       continue;
     }
-    if (!/\(.*\)$/.test(contents) || / Operator \( `[^`]+` \)$/.test(contents)) {
+    if (!/\(.*\)$/.test(contents) || / Operator \( `[^`]+` \)$/i.test(contents)) {
       continue;
     }
 
@@ -36,7 +36,7 @@ export function collectHeaderDiagnostics(
 
     const nameMatches = [
       // Runtime Semantics: Foo
-      /^(Runtime|Static) Semantics: [A-Z][A-Za-z0-9/]*\s*$/,
+      /^(Runtime|Static) [Ss]emantics: [A-Z][A-Za-z0-9/]*\s*$/,
 
       // Number::foo
       /^[A-Z][A-Za-z0-9]*::[a-z][A-Za-z0-9]*\s*$/,

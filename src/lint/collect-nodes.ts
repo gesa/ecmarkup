@@ -50,7 +50,7 @@ export function collectNodes(
         if (first !== null && first.nodeName === 'H1') {
           const title = textContentExcludingDeleted(first);
           headers.push({ element: first, contents: title });
-          if (title.trim() === 'Static Semantics: Early Errors') {
+          if (title.trim().toLowerCase() === 'static semantics: early errors') {
             let grammar: Element | null = null;
             let lists: HTMLUListElement[] = [];
             let warned = false;

@@ -1753,7 +1753,7 @@ ${copyright}`;
       const clause = header.firstElementChild!.textContent!;
       const nameMatch = header.textContent
         ?.slice(clause.length + 1)
-        .match(/^(?:(?:Static|Runtime) Semantics: )?\s*(\w+)\b/);
+        .match(/^(?:(?:Static|Runtime) Semantics: )?\s*(\w+)\b/i);
       if (nameMatch == null) {
         this.warn({
           type: 'contents',

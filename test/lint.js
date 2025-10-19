@@ -357,7 +357,7 @@ describe('linting whole program', () => {
             <h1>Runtime Semantics: Example ( )</h1>
           </emu-clause>
           <emu-clause id="i3">
-            <h1>The * Operator ( \`*\` )</h1>
+            <h1>The * operator ( \`*\` )</h1>
           </emu-clause>
           <emu-clause id="i4">
             <h1>Number::example ( )</h1>

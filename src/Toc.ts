@@ -56,5 +56,5 @@ export default class Toc {
 }
 
 function shorten(title: string) {
-  return title.replace('Static Semantics:', 'SS:').replace('Runtime Semantics:', 'RS:');
+  return title.replace(/Static Semantics:/i, 'SS:').replace(/Runtime Semantics:/i, 'RS:');
 }
