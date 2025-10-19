@@ -69,6 +69,8 @@
 
 :root {
   --page-number-style: decimal;
+  --black: #000000;
+  --white: #ffffff;
   -prince-change-line-breaks-for-pagination: yes; /* see https://www.princexml.com/doc/prince-for-books/#pagination-fine-tuning */
 }
 
@@ -193,7 +195,7 @@ html, body {
 body {
   font-family: 'Arial Plus', Arial, Helvetica, sans-serif, "DejaVu Math TeX Gyre", Symbola, monospace;
   font-size: 10pt;
-  color: #000;
+  color: var(--black);
   line-height: 1.15;
 }
 
@@ -201,7 +203,7 @@ h1, h2, h3, h4, h5, h6 { -prince-bookmark-level: none } /* see https://www.princ
 
 .copyright-notice + h1.title {
   break-before: recto;
-  color: black;
+  color: var(--black);
   counter-reset: page 1;
   display: block;
   font-size: 15pt;
@@ -216,7 +218,7 @@ p {
   text-rendering: optimizeLegibility;
   text-wrap: pretty;
   overflow-wrap: break-word;
-  hyphens: none;
+  hyphens: manual;
   orphans: 2, -prince-prefer 3; /* see https://www.princexml.com/doc/prince-for-books/#pagination-goals */
   widows: 2, -prince-prefer 3;
 }
@@ -252,7 +254,7 @@ emu-table td,
 pre,
 h1,
 emu-production,
-emu-figure:has(> figure > img) figure,
+emu-figure,
 #metadata-block {
   break-inside: avoid;
   border: unset;
@@ -284,7 +286,7 @@ emu-note .note {
 }
 
 emu-note table td {
-  background-color: white;
+  background-color: var(--white);
 }
 
 emu-note p,
@@ -427,8 +429,7 @@ emu-table th {
 
 caption, table > figcaption {
   caption-side: top;
-  color: #000;
-  font-weight: bold;
+  color: var(--black);
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -476,6 +477,21 @@ emu-figure img {
   height: auto;
 }
 
+figure figcaption {
+  color: var(--black);
+  text-align: center;
+}
+
+emu-figure figcaption {
+  font-style: italic;
+  font-weight: normal;
+  margin-top: 0.5lh;
+}
+
+emu-table figcaption {
+  margin-bottom: 0.5lh;
+}
+
 .attributes-tag {
   break-before: avoid-page;
   break-after: avoid-page;
@@ -503,7 +519,7 @@ emu-figure img {
 
 #toc a,
 #toc var {
-  color: #000;
+  color: var(--black);
 }
 
 #toc a[href]::after {
@@ -573,7 +589,7 @@ emu-annex > h1 .secnum {
 
 .copyright-notice { /* ecma mandated */
   font-style: italic;
-  border: 1px solid black;
+  border: 1px solid var(--black);
   padding: 1em;
   page: copyright;
   break-before: page;
@@ -592,7 +608,7 @@ emu-annex > h1 .secnum {
 }
 
 #front-cover h1 {
-  color: black;
+  color: var(--black);
   display: block;
   font-family: Verdana;
   position: absolute;
@@ -608,7 +624,7 @@ h1.shortname {
 }
 
 h1.shortname a:link, h1.shortname a:visited, h1.shortname a:hover, h1.shortname a:active {
-  color: black;
+  color: var(--black);
 }
 
 h1.shortname .status {

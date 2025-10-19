@@ -60,11 +60,10 @@ function rearrangeTables() {
 
   tables.forEach(emuTable => {
     const figcaption = emuTable.getElementsByTagName('figcaption')[0];
-    const tableCaptionText = figcaption.innerHTML.replace(': ', ' — ');
     const table = emuTable.getElementsByTagName('table')[0];
     const captionElement = document.createElement('caption');
 
-    captionElement.innerHTML = tableCaptionText;
+    captionElement.innerHTML = figcaption.innerHTML;
 
     table.insertBefore(captionElement, table.getElementsByTagName('thead')[0]);
     table.appendChild(figcaption);
@@ -72,9 +71,13 @@ function rearrangeTables() {
 }
 
 function formatCaptions() {
-  const captions = Array.from(document.getElementsByTagName('figcaption'));
+  const figures = Array.from(document.querySelectorAll('emu-figure figure'));
 
-  captions.forEach(caption => (caption.innerHTML = caption.innerHTML.replace(': ', ' — ')));
+  figures.forEach(figure => {
+    const caption = figure.getElementsByTagName('figcaption')[0];
+
+    figure.appendChild(caption);
+  });
 }
 
 /**
