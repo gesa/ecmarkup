@@ -1195,7 +1195,7 @@ ${await utils.readFile(path.join(__dirname, '../js/multipage.js'))}
       script.setAttribute('defer', '');
       this.doc.head.appendChild(script);
 
-      this.addStyle(this.doc.head, path.relative(outDir, printStyleLocationOnDisk),'print');
+      this.addStyle(this.doc.head, path.relative(outDir, printStyleLocationOnDisk), 'print');
       this.addStyle(this.doc.head, path.relative(outDir, styleLocationOnDisk));
     } else {
       // i.e. assets.type === 'inline'
@@ -1613,7 +1613,9 @@ ${this.opts.multipage ? `<li><span>Navigate to/from multipage</span><code>m</cod
 
     // Ecma documents should exclusively have either the standard copyright or the alternative copyright.
     // Proposals are not Ecma documents.
-    let copyright = getBoilerplate(copyrightFile || `${this.opts.status !== 'proposal' ? 'standard' : 'proposal'}-copyright`);
+    let copyright = getBoilerplate(
+      copyrightFile || `${this.opts.status !== 'proposal' ? 'standard' : 'proposal'}-copyright`,
+    );
     const copyrightElement = this.doc.createElement('div');
 
     copyrightElement.classList.add('copyright-notice');
