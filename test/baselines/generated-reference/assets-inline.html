@@ -3508,7 +3508,7 @@ emu-table td,
 pre,
 h1,
 emu-production,
-emu-figure:has(> figure > img) figure,
+emu-figure,
 #metadata-block {
   break-inside: avoid;
   border: unset;
@@ -3529,13 +3529,17 @@ emu-alg ol li:last-child {
   break-after: initial; /* it's okay to break after the last item in a list, even if it's also the first item in the list */
 }
 
+emu-note, [legacy] {
+  margin-left: -0.5em;
+}
+
 emu-note {
   gap: initial;
   justify-content: space-between;
+  font-size: 9pt;
 }
 
 emu-note .note {
-  font-size: 9pt;
   min-width: 4.5em;
 }
 
@@ -3685,7 +3689,7 @@ caption, table > figcaption {
   caption-side: top;
   color: var(--black);
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5lh;
   text-align: center;
 }
 
@@ -3696,6 +3700,14 @@ caption {
 /* do not break inside of small tables */
 table:not(:has(tr:nth-of-type(5))) {
   break-inside: avoid-page;
+}
+
+table tr:first-of-type, table tr:nth-of-type(2) {
+  break-after: avoid;
+}
+
+table tr:last-of-type {
+  break-before: avoid;
 }
 
 /* This inheritance looks weird—it's due to how Prince manages continuity in tables across pages */
@@ -3730,6 +3742,16 @@ emu-figure img {
   margin-top: 1ex;
   max-width: 100%;
   height: auto;
+}
+
+figure figcaption {
+  color: var(--black);
+  text-align: center;
+}
+
+emu-figure figcaption,
+emu-table figcaption {
+  margin: 0.5lh 0;
 }
 
 .attributes-tag {
